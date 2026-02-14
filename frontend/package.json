@@ -1,0 +1,24 @@
+{
+  "name": "invoice-frontend",
+  "version": "0.0.1",
+  "type": "module",
+  "private": true,
+  "scripts": {
+    "dev": "vite --port 3000 --host",
+    "build": "vite build",
+    "preview": "vite preview --port 3000"
+  },
+  "dependencies": {
+    "react": "18.2.0",
+    "react-dom": "18.2.0",
+    "axios": "1.4.0"
+  },
+  "devDependencies": {
+    "vite": "5.2.0",
+    "@vitejs/plugin-react": "5.1.0"
+  },
+  "engines": {
+    "node": ">=16.0.0",
+    "npm": ">=7.0.0"
+  }
+}

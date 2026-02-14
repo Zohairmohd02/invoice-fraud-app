@@ -1,0 +1,51 @@
+version: '3.8'
+services:
+  db:
+    image: postgres:15
+    restart: always
+    environment:
+      POSTGRES_USER: invoice_user
+      POSTGRES_PASSWORD: invoice_pass
+      POSTGRES_DB: invoices_db
+    volumes:
+      - db_data:/var/lib/postgresql/data
+      - ./backend/init.sql:/docker-entrypoint-initdb.d/init.sql:ro
+    ports:
+      - '5432:5432'
+
+  model:
+    build: ./model
+    restart: on-failure
+    environment:
+      - MODEL_PORT=5001
+    ports:
+      - '5001:5001'
+
+  backend:
+    build: ./backend
+    depends_on:
+      - db
+      - model
+    environment:
+      - PORT=4000
+      - DB_HOST=db
+      - DB_USER=invoice_user
+      - DB_PASSWORD=invoice_pass
+      - DB_NAME=invoices_db
+      - MODEL_URL=http://model:5001/predict
+    ports:
+      - '4000:4000'
+    volumes:
+      - ./backend:/app
+
+  frontend:
+    build: ./frontend
+    depends_on:
+      - backend
+    ports:
+      - '3000:3000'
+    environment:
+      - VITE_API_URL=http://localhost:4000/api
+
+volumes:
+  db_data:

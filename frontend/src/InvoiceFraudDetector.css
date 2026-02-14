@@ -1,0 +1,13 @@
+.ifd-root{font-family:Arial,Helvetica,sans-serif;padding:18px}
+.ifd-form{display:grid;grid-template-columns:1fr 1fr;gap:8px 12px;max-width:760px;margin-bottom:18px}
+.ifd-form input,.ifd-form textarea{padding:8px;border:1px solid #ccc;border-radius:6px}
+.ifd-form textarea{grid-column:1/3;height:72px}
+.ifd-form button{grid-column:1/3;padding:10px;border-radius:6px;background:#4f46e5;color:white;border:none;cursor:pointer}
+.ifd-list{max-width:900px}
+.ifd-empty{color:#666;padding:20px;background:#f7f7f7;border-radius:6px}
+.ifd-item{padding:12px;margin-bottom:10px;border-radius:8px;border:1px solid #e5e7eb;background:white}
+.ifd-item.red{border-color:#fecaca;background:#fff1f2}
+.ifd-item.yellow{border-color:#fef3c7;background:#fffbeb}
+.ifd-item.green{border-color:#bbf7d0;background:#f0fdf4}
+.ifd-meta{color:#444;margin-top:8px;font-size:14px}
+.ifd-alert{margin-top:8px;padding:8px;background:#fff5f5;border-left:4px solid #f87171;border-radius:4px}
