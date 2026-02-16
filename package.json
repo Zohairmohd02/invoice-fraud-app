@@ -4,6 +4,10 @@
   "description": "This repository contains a simple full-stack MVP for invoice fraud detection.",
   "main": "index.js",
   "scripts": {
+    "install:all": "npm install && cd frontend && npm install && cd ../backend && npm install && cd ..",
+    "build": "cd frontend && npm run build && cd .. && cp -r frontend/dist backend/public",
+    "start": "cd backend && npm start",
+    "dev": "cd backend && npm run dev",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
